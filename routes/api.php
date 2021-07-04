@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MedicineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('sanctum:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/medicine', [MedicineController::class, index]);
+Route::get('/medicine/{medicine}', [MedicineController::class, show]);
+
