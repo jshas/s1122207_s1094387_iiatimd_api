@@ -16,7 +16,7 @@ class CreateMedicinesTable extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('amount', 6, 2);
+            $table->double('amount', 7, 2);
             $table->string('unit_name');
             $table->foreign('unit_name')->references('name')->on('units');
         });
@@ -28,11 +28,10 @@ class CreateMedicinesTable extends Migration
      * @return void
      */
     public function down()
-    {        
-    Schema::table('medicines', function (Blueprint $table){
-        $table->dropForeign(['unit_name']);
- 
-    });
+    {     
+        Schema::table('medicines', function (Blueprint $table){  
+            $table->dropForeign(['unit_name']);
+        });
 
         Schema::dropIfExists('medicines');
     }
