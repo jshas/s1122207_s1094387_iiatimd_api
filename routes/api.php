@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,14 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user', function (Request $request) { return $request->user(); });
-
-    /*=========================================================
-    *
-    *                         MEDICINE
-    *
-    ==========================================================*/
+    Route::post('profile', 'App\Http\Controllers\AuthController@profile');
+    Route::post('logout', 'App\Http\Controllers\AuthController@logout');
     Route::get('/medicine', 'App\Http\Controllers\MedicineController@index');
-    Route::get('/medicine/{medicine}', 'App\Http\Controllers\MedicineController@show');
 
 });
 
+Route::post('register', 'App\Http\Controllers\AuthController@register');
+Route::post('login', 'App\Http\Controllers\AuthController@login');
+
+Route::get('/medicine/{medicine}', 'App\Http\Controllers\MedicineController@show');

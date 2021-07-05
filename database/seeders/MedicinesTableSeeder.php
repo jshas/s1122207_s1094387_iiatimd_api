@@ -57,9 +57,26 @@ class MedicinesTableSeeder extends Seeder
             'amount' => '5',
             'unit_name' => 'mg',
         ]);
+
+        DB::table('medicines')->insert([
+            'name' => 'Vitamine C',
+            'amount' => '500',
+            'unit_name' => 'mg',
+        ]);
+
+        DB::table('medicines')->insert([
+            'name' => 'Vyvanse',
+            'amount' => '20',
+            'unit_name' => 'mg',
+        ]);
+
+        DB::table('medicines')->insert([
+            'name' => 'Prozac',
+            'amount' => '10',
+            'unit_name' => 'mg',
+        ]);
         
 
-        
-
+    
     }
 }
